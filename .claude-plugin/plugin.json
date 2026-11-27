@@ -1,0 +1,8 @@
+{
+  "name": "uiux-seo",
+  "version": "1.0.0",
+  "description": "claude-seo UI/UX 버전. Chrome DevTools + Lighthouse + axe-core 실측 엔진과 Vercel web-design-guidelines를 하나로 묶어 UI/UX·접근성·성능(CWV)·텍스트 벽·체류시간을 정량 감사하고 개선한다.",
+  "author": { "name": "Yoon" },
+  "license": "MIT",
+  "keywords": ["uiux", "seo", "claude-seo", "lighthouse", "axe-core", "chrome-devtools", "web-design-guidelines", "cwv", "accessibility"]
+}
