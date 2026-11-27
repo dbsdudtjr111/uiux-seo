@@ -32,13 +32,13 @@ argument-hint: "<URL 또는 URL 목록> [--claude-headless]"
    ```
    - Lighthouse: Performance · Accessibility · Best Practices · SEO 점수, LCP / CLS / TBT, 실패 항목
    - axe-core: WCAG 접근성 위반
-   - Playwright + `@axe-core/playwright`: 가로 스크롤 넘침·`Tab` 포커스 링·클릭 전환·상태별 접근성 (`<이름>.interaction.json`)
+   - Playwright + `@axe-core/playwright`: 가로 스크롤 넘침·`Tab` 포커스 링·고정 요소 겹침·깨진 이미지·기호 아이콘·`<details>` 펼친 후 긴 문단(`250자↑/6줄↑`)·상태별 접근성 (`<이름>.interaction.json`, `--critique-shots` 시 `800px` 간격 전체 촬영)
    - impeccable detect: 모바일 화면 기준 규칙 검사 (`<이름>.detect.json`)
    - *(선택)* `--claude-headless`: 로컬 Claude CLI로 요약 생성
 
 2. **사용성 검토 (매번 실행 · 사용자가 빼라고 하면 생략)**
    - 별도 평가자(서브에이전트)에게 맡긴다. 1단계 결과와 의심하는 문제는 알려 주지 않고 `audit-out`도 읽지 않게 한다.
-   - 평가자에게 줄 것: 대상 URL, `references/impeccable-critique.md`의 «Assessment A»와 `references/critique-rubric.md`(평가 기준으로만 씀), 창 없는 크롬/크로미움 390x844 로 페이지 전체를 구간별 촬영해 보기, 폼 제출·전화 버튼은 누르지 않기, 저장소는 고치지 않기.
+   - 평가자에게 줄 것: 대상 URL, `references/impeccable-critique.md`의 «Assessment A»와 `references/critique-rubric.md`(평가 기준으로만 씀), 창 없는 크롬/크로미움 390x844 로 `800px` 간격 전체 구간과 `<details>` 펼친 상태까지 누락 없이 촬영해 보기, 폼 제출·전화 버튼은 누르지 않기, 저장소는 고치지 않기.
    - 받을 것: 점수표, P0~P3 문제(화면 위치·고칠 방향), 확인 못 한 범위.
    - 주소가 여러 개면 틀(페이지 종류)마다 대표 1곳만 검토한다.
    - 서브에이전트를 쓸 수 없으면 직접 검토하고 보고에 «단독 검토»라고 적는다.
