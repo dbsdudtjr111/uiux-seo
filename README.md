@@ -1,17 +1,21 @@
 # uiux-seo (`claude-seo` UI/UX 버전)
 
-실측 기반 UI/UX · 접근성 · Core Web Vitals 감사 및 개선 워크플로우 플러그인입니다.  
-`naver-seo`와 동일한 `C:\Users\USER\Desktop\workspace` 공통 플러그인 규격(`.claude-plugin/`, `skills/`, `scripts/`, `references/`)을 따릅니다.
+기존 도구를 모아 한 번에 검사하고 «고칠 것 목록»을 알려 주는 묶음입니다. 코드 수정은 하지 않습니다.
+«claude-seo UI/UX 버전»은 부르는 이름일 뿐이며 claude-seo의 일부가 아닙니다.
 
 ## 구성 요소
 
-| 구분 | 도구 | 역할 |
+| 도구 | 역할 | 실행 |
 |---|---|---|
-| 실측 엔진 1 | **Chrome DevTools** (`chrome-devtools-plugin`) | 실시간 DOM, 레이아웃, 콘솔/네트워크, 뷰포트·인터랙션 검증 |
-| 실측 엔진 2 | **Lighthouse 13.6.0** | Performance(LCP/CLS/TBT), Accessibility, Best Practices, SEO, 내장 axe-core |
-| 실측 엔진 3 | **axe-core CLI 4.14.1** | WCAG 2.1/2.2 접근성 정밀 감사 (ChromeDriver 호환 시 단독 + 미스매치 시 Lighthouse 폴백) |
-| 공식 UI/UX 기준 | **Vercel `web-design-guidelines` v1.1.0** | 접근성, 포커스, 폼, 타이포그래피(`tabular-nums`), 대비, 이미지, 모션 기준 체크 |
-| 선택 헤드리스 연동 | **Claude Code CLI (`claude -p`)** | `--claude-headless` 플래그 시 구독 OAuth 기반 AI 리포트 요약 (추가 API 과금 없음) |
+| Lighthouse | 성능(LCP/CLS/TBT)·접근성·모범사례·SEO | 스크립트 |
+| axe-core CLI | 접근성 위반 (안 돌면 Lighthouse 내장 결과) | 스크립트 |
+| impeccable detect 4.11.1 | 모바일 화면 규칙 검사 (긴 문단 규칙은 없음) | 스크립트 (`npx`) |
+| impeccable 평가 기준 | 사용성 검토 (AI 판단) | 스킬을 돌리는 AI의 별도 평가자 |
+| Vercel web-design-guidelines | UI 코드 규칙 대조 (소스가 있을 때) | 스킬을 돌리는 AI |
+| Claude Code CLI | `--claude-headless` 를 붙일 때만 결과 요약 | 선택 |
+
+체류시간은 재지 않습니다. 절차는 `skills/uiux-seo/SKILL.md` 에 있습니다.
+`references/impeccable-*` 와 `critique-rubric.md` 는 [impeccable](https://github.com/pbakaus/impeccable)(Apache-2.0)에서 가져왔습니다.
 
 ## 빠른 실행
 

@@ -2,12 +2,12 @@
   "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
   "name": "uiux-seo",
   "owner": { "name": "Yoon" },
-  "metadata": { "description": "claude-seo UI/UX 버전 (실측 엔진 + Vercel Web Interface Guidelines 통합 플러그인)" },
+  "metadata": { "description": "기존 UI/UX 도구(Lighthouse·axe-core·impeccable·Vercel web-design-guidelines)를 한 번에 돌려 무엇을 고칠지 알려 주는 검사 묶음." },
   "plugins": [
     {
       "name": "uiux-seo",
       "source": "./",
-      "description": "Chrome DevTools + Lighthouse + axe-core + Vercel web-design-guidelines 통합 UI/UX·성능·접근성 감사 플러그인.",
+      "description": "기존 UI/UX 도구(Lighthouse·axe-core·impeccable·Vercel web-design-guidelines)를 한 번에 돌려 무엇을 고칠지 알려 주는 검사 묶음.",
       "author": { "name": "Yoon" },
       "category": "design",
       "keywords": ["uiux", "seo", "lighthouse", "axe-core", "web-design-guidelines"]
