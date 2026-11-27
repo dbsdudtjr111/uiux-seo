@@ -112,6 +112,26 @@ def run_detect(url: str, out_file: Path) -> dict:
     return {"total": len(items), "rules": list(rules.values())}
 
 
+def run_interaction(url: str, out_dir: Path) -> dict | None:
+    node = shutil.which("node")
+    script = Path(__file__).resolve().parent / "audit_interaction.mjs"
+    if not node or not script.is_file():
+        return None
+    res = subprocess.run(
+        [node, str(script), url, "--out", str(out_dir)],
+        capture_output=True,
+        text=True,
+        encoding="utf-8",
+        errors="replace",
+        timeout=120,
+        check=False,
+    )
+    fpath = out_dir / f"{slugify(url)}.interaction.json"
+    if not fpath.is_file():
+        return {"error": res.stderr.strip()[-200:] or "interaction 실행 실패"}
+    return json.loads(fpath.read_text(encoding="utf-8", errors="replace"))
+
+
 def summarize_lh(d: dict) -> dict:
     cats = {k: int(round((v.get("score") or 0) * 100)) for k, v in d.get("categories", {}).items()}
     a = d.get("audits", {})
@@ -181,11 +201,13 @@ def main() -> int:
         lh_data = run_lighthouse(url, out_dir / f"{name}.lh.json", chrome)
         axe_data = run_axe(url, out_dir, name, chrome)
         detect = run_detect(url, out_dir / f"{name}.detect.json")
+        interaction = run_interaction(url, out_dir)
         row = {
             "url": url,
             "lighthouse": summarize_lh(lh_data) if lh_data else None,
             "axe_external_violations": len(axe_data) if axe_data is not None else "skipped_driver_mismatch_using_lighthouse_axe",
             "impeccable_detect": detect,
+            "interaction_axe": interaction,
         }
         results.append(row)
         print(json.dumps(row, ensure_ascii=False))

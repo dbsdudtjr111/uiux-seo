@@ -19,6 +19,7 @@ argument-hint: "<URL 또는 URL 목록> [--claude-headless]"
 | 성능·접근성·SEO 점수 | Lighthouse (스크립트) |
 | 접근성 위반 | axe-core (스크립트 · 안 돌면 Lighthouse 내장 결과) |
 | 화면 결함 규칙 검사 | `impeccable detect` (스크립트 · 긴 문단 규칙은 없음) |
+| 인터랙션·포커스·가로넘침·상태별 접근성 | `Playwright` + `@axe-core/playwright` (`scripts/audit_interaction.mjs` · 토큰 0) |
 | 사용성 검토 (긴 글벽·오해·누르기 어려움 등) | `impeccable` 평가 기준으로 별도 평가자가 검토 (AI 판단 · 약 3분·토큰 약 10만) |
 | UI 규칙 대조 | Vercel `web-design-guidelines` 문서를 읽고 비교 (소스가 있을 때) |
 | 체류시간 | 재지 않음 |

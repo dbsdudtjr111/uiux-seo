@@ -1,0 +1,13 @@
+{
+  "name": "uiux-seo",
+  "version": "1.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "audit:interaction": "node scripts/audit_interaction.mjs"
+  },
+  "dependencies": {
+    "@axe-core/playwright": "^4.10.2",
+    "playwright": "^1.52.0"
+  }
+}
