@@ -9,6 +9,7 @@
 |---|---|---|
 | Lighthouse | 성능(LCP/CLS/TBT)·접근성·모범사례·SEO | 스크립트 |
 | axe-core CLI | 접근성 위반 (안 돌면 Lighthouse 내장 결과) | 스크립트 |
+| Playwright + @axe-core/playwright | 가로 넘침·Tab 포커스 링·클릭 전환·상태별 WCAG (`audit_interaction.mjs`) | 스크립트 (토큰 0) |
 | impeccable detect 4.11.1 | 모바일 화면 규칙 검사 (긴 문단 규칙은 없음) | 스크립트 (`npx`) |
 | impeccable 평가 기준 | 사용성 검토 (AI 판단) | 스킬을 돌리는 AI의 별도 평가자 |
 | Vercel web-design-guidelines | UI 코드 규칙 대조 (소스가 있을 때) | 스킬을 돌리는 AI |
@@ -37,7 +38,7 @@ python scripts/audit_uiux.py https://rchada.com/events --claude-headless
 
 ## 사전 요구사항
 
-- Node.js 18+ (`npm i -g lighthouse @axe-core/cli`)
+- Node.js 18+ (`npm i -g lighthouse @axe-core/cli`, 플러그인 폴더 내 `npm install` 로 `playwright` / `@axe-core/playwright` 설치)
 - Python 3.10+
 - Google Chrome
 - (선택) Claude Code CLI (`claude` 로그인 상태)

@@ -32,6 +32,7 @@ argument-hint: "<URL 또는 URL 목록> [--claude-headless]"
    ```
    - Lighthouse: Performance · Accessibility · Best Practices · SEO 점수, LCP / CLS / TBT, 실패 항목
    - axe-core: WCAG 접근성 위반
+   - Playwright + `@axe-core/playwright`: 가로 스크롤 넘침·`Tab` 포커스 링·클릭 전환·상태별 접근성 (`<이름>.interaction.json`)
    - impeccable detect: 모바일 화면 기준 규칙 검사 (`<이름>.detect.json`)
    - *(선택)* `--claude-headless`: 로컬 Claude CLI로 요약 생성
 
